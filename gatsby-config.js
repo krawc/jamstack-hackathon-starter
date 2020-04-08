@@ -19,8 +19,8 @@ More docs: https://www.netlify.com/docs/identity/
 
 module.exports = {
   siteMetadata: {
-    title: "JAMstack Hackathon Starter",
-    description: `Kick off your next, great Gatsby app.`,
+    title: "LiveRoom",
+    description: `Creative Network for Collaboration, Feedback and Live Shows`,
     author: `@swyx`,
   },
 
