@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-
 import { useIdentityContext } from "react-netlify-identity-widget"
+import fetch from 'cross-fetch';
 
 const Stream = (props) => {
     const { user } = useIdentityContext()

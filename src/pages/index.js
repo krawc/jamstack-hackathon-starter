@@ -18,7 +18,7 @@ class IndexPage extends React.Component {
 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch('/.netlify/functions/streams').then((response) => {
       return response.json();
     }).then((response) => {
