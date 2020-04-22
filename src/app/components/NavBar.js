@@ -14,16 +14,20 @@ export default () => {
       style={{
         display: "flex",
         flex: "1",
+        fontFamily: "Helvetica, sans-serif",
+        fontSize: '14px',
         justifyContent: "space-between",
         borderBottom: "1px solid #d1c1e0",
         backgroundColor: "aliceblue",
+        padding: "0 12px",
+        boxSizing: "border-box"
       }}
     >
       <span>{message}</span>
 
       <nav>
         <span>Navigate the app: </span>
-        <Link to="/app/">Main</Link>
+        <Link to="/">Main</Link>
         {` `}
         <Link to="/app/profile">Profile</Link>
         {` `}

@@ -11,7 +11,6 @@ import Login from "./login"
 const App = () => {
   return (
     <Layout>
-      <NavBar />
       <Router>
         <PrivateRoute path="/app/profile" component={Profile} />
         <PublicRoute path="/app">

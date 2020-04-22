@@ -6,16 +6,16 @@ const Stream = (props) => {
     const { user } = useIdentityContext()
 
     const [stream, setStream] = useState(null);
+
+    const fetchStream = async () => {
+      const apiCall = await fetch(`/.netlify/functions/streams/${props.id}`);
+      const str = await apiCall.json();
+      setStream(str);
+    }
     
     useEffect( () => {
-        fetch(`/.netlify/functions/streams/${props.id}`).then((response) => {
-            return response.json();
-          }).then((response) => {
-            console.log(response);
-            setStream(response);
-          });
-    });
-
+      fetchStream();
+    }, []);
     
     return (
         <div>

@@ -1,14 +1,99 @@
 import React from "react"
-
 import { useIdentityContext } from "react-netlify-identity-widget"
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import 'date-fns';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
+
+
 const Profile = () => {
   const { user } = useIdentityContext()
-  return (
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let data = {
+      url: e.target.elements.video_id.value,
+      name: e.target.elements.stream_name.value
+    }
+    fetch('/.netlify/functions/streams', {
+      body: JSON.stringify(data),
+      method: 'POST'
+    }).then(response => {
+       console.log(response.json())
+    })
+  }
+
+  // The first commit of Material-UI
+  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+
+    return (
     <>
       <h1>Your profile</h1>
       <ul>
         <li>Name: {user.user_metadata && user.user_metadata.full_name}</li>
-        <li>E-mail: {user.email}</li>
+        {/* <button onClick={handleClick}>CLICK TO ADD AN ITEM</button> */}
+        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+          ADD NEW STREAM
+        </Button>
+        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+          <DialogTitle id="form-dialog-title">Add New Stream</DialogTitle>
+          <form onSubmit={handleSubmit}>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              name="video_id"
+              id="VideoID"
+              label="Video ID"
+              type="text"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              name="stream_name"
+              id="name"
+              label="Stream Name"
+              type="text"
+              fullWidth
+            />
+            
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button type="submit" onClick={handleClose} color="primary">
+              Add
+            </Button>
+          </DialogActions>
+          </form>
+        </Dialog>
       </ul>
     </>
   )

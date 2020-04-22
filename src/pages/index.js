@@ -1,9 +1,54 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+import Logo from "../components/logo"
 import SEO from "../components/seo"
+import Link from '@material-ui/core/Link';
+import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Collapse from '@material-ui/core/Collapse';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import { red } from '@material-ui/core/colors';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+
+const useStyles =  theme => ({
+  root: {
+    flex: "0 0 48%",
+    margin: "1%"
+  },
+  link: {
+    textDecoration: "none!important",
+    color: "#222"
+  },
+  media: {
+    height: 200,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+});
 
 class IndexPage extends React.Component {
   state = { loading: false, msg: null, streams: [] }
@@ -14,8 +59,6 @@ class IndexPage extends React.Component {
     fetch("/.netlify/functions/token-hider")
       .then(response => response.json())
       .then(json => this.setState({ loading: false, msg: json.message }))
-
-
   }
 
   componentDidMount() {
@@ -29,6 +72,11 @@ class IndexPage extends React.Component {
 
   render() {
 
+
+    const { classes } = this.props;
+
+    // const classes = useStyles();
+
     const { loading, msg, streams } = this.state;
 
     const streamItems = streams.map( (stream) => {
@@ -37,11 +85,40 @@ class IndexPage extends React.Component {
       const link = '/app/stream/' + id;
 
       return (
-        <div className="stream">
-          <a href={link}>
-            <h1>{link}</h1>
-          </a>
-        </div>
+        <Card className={classes.root}>
+          <Link className={classes.link} href={link}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              R
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title={stream.data.name}
+          subheader={stream.data.from}
+        />
+        <CardMedia
+          className={classes.media}
+          image={stream.data.thumbnail ? stream.data.thumbnail : "https://lh3.googleusercontent.com/proxy/d7JIvk_Qlk-Gn2whM870rD7Af-kPMJ-vj6s12xj2UyCQcXzXOnbja9hdnBPy98bJuTFYN2OgKk2Sz2BgD3MNUIUu3yT-3ck9ZkGRG8edeiB1bDz4F98KWl4"}
+          wide
+          title="Paella dish"
+        >
+          </CardMedia>
+        </Link>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </CardActions>
+        
+      </Card>
       );
     });
 
@@ -52,6 +129,7 @@ class IndexPage extends React.Component {
           style={{
             display: "flex",
             justifyContent: "space-between",
+            flexWrap: "wrap"
           }}
         >
 
@@ -64,4 +142,4 @@ class IndexPage extends React.Component {
   }
 }
 
-export default IndexPage
+export default withStyles(useStyles)(IndexPage)
