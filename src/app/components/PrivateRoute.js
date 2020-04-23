@@ -10,7 +10,7 @@ function PrivateRoute(props) {
     () => {
       if (!isLoggedIn && location.pathname !== `/app/login`) {
         // If the user is not logged in, redirect to the login page.
-        navigate(`/app/login`)
+        //navigate(`/app/login`)
       }
     },
     [isLoggedIn, location]
