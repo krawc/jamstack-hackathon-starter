@@ -1,5 +1,5 @@
 // TODO: dear user, please change this to your own instance
-const netlifyInstance = "https://liveroom-dev.netlify.com"
+const netlifyInstance = "https://liveroom-dev.netlify.app"
 if (netlifyInstance === "https://jamstack-hackathon-starter.netlify.com") {
   console.warn(`
 **************************
