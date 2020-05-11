@@ -6,6 +6,7 @@ const Stream = (props) => {
     const { user } = useIdentityContext()
 
     const [stream, setStream] = useState(null);
+    const [streamId, setStreamId] = useState("");
 
     const fetchStream = async () => {
       const apiCall = await fetch(`/.netlify/functions/streams/${props.id}`);

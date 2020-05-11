@@ -3,8 +3,19 @@ import React from "react"
 
 import Layout from "../components/layout"
 import Logo from "../components/logo"
+import front1 from '../images/front1.png'; // Tell webpack this JS file uses this image
+import Button from '@material-ui/core/Button';
+import {
+  IdentityModal,
+  useIdentityContext,
+} from "react-netlify-identity-widget"
+import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
+
 import SEO from "../components/seo"
 import Link from '@material-ui/core/Link';
+import { navigate } from "gatsby"
+
+import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -51,7 +62,14 @@ const useStyles =  theme => ({
 });
 
 class IndexPage extends React.Component {
-  state = { loading: false, msg: null, streams: [] }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false, msg: null, streams: [], dialog: false
+    }
+  }
+  
   handleClick = e => {
     e.preventDefault()
 
@@ -61,14 +79,14 @@ class IndexPage extends React.Component {
       .then(json => this.setState({ loading: false, msg: json.message }))
   }
 
-  componentDidMount() {
-    fetch('/.netlify/functions/streams').then((response) => {
-      return response.json();
-    }).then((response) => {
-      console.log(response);
-      this.setState({streams: response});
-    });
-  }
+  // componentDidMount() {
+  //   fetch('/.netlify/functions/streams').then((response) => {
+  //     return response.json();
+  //   }).then((response) => {
+  //     console.log(response);
+  //     this.setState({streams: response});
+  //   });
+  // }
 
   render() {
 
@@ -123,23 +141,52 @@ class IndexPage extends React.Component {
     });
 
     return (
-      <Layout>
+      <Layout >
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            flexWrap: "wrap"
+            flexWrap: "wrap",
           }}
         >
 
-          {streamItems}
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            style={{background: `#20202A`}}
+          >
+
+            <Grid sm="7">
+              <h1 style={{color: "white", fontSize: "55px", lineHeight: "85px"}}>Discover the world's top creatives <span style={{color: "rgb(254, 83, 196)"}}>live.</span></h1>
+              <p style={{color: "#C4C4C4", fontSize: "18px" }}>Liveroom is a leading platform for streaming original live content of artists.</p>
+              <Button onClick={() => this.setState({dialog: true})} style={{
+                  background: "linear-gradient(270deg, rgb(255, 83, 83) 1.64%, rgb(255, 83, 83) 1.65%, rgb(255, 83, 196) 96.17%)",
+                  borderRadius: "12.2404px",
+                  color: "rgb(255, 255, 255)",
+                  fontFamily: "Montserrat, sans-serif",
+                  padding: "0.5em 1em",
+                  fontSize: 18
+              }}>Sign up / Log in</Button>
+              </Grid>
+            <Grid sm="5"><img src={front1} alt="energetic young male dancing in pink illumination"/></Grid>
+
+          </Grid>
 
          
         </div>
+        <IdentityModal
+        showDialog={this.state.dialog}
+        onCloseDialog={() => this.setState({dialog: false})}
+        onLogin={user => navigate("/")}
+        onSignup={user => navigate("/")}
+      />
       </Layout>
     )
   }
+
 }
 
 export default withStyles(useStyles)(IndexPage)

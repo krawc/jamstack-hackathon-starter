@@ -4,25 +4,38 @@ import NavBar from "../app/components/NavBar"
 import React from "react"
 import Logo from "../components/logo"
 
+import { useIdentityContext } from "react-netlify-identity-widget"
+
+
 const Header = ( props ) => (
+
   <header
     style={{
-      background: `linear-gradient(90deg, rgba(255,183,62,1) 0%, rgba(238,70,162,1) 49%, rgba(0,191,255,1) 100%)`,
-      marginBottom: `1.45rem`,
+      background: `#20202A`,
+      width: "100%",
+      maxWidth: 1350,
+      margin: "0 auto 1.45rem"
     }}
   >
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: 200,
-        padding: `1rem 0.8rem`,
+        padding: `1rem 1.5rem`,
+        display: "flex",
+        alignItems: "center",
+        width: "100%"
       }}
     >
       <Logo/>
+      <Link style={{margin: "0 1em", fontSize: "14px"}} to="/">Explore</Link>
+      <Link style={{margin: "0 1em", fontSize: "14px"}} to="/">For Creatives</Link>
+
+      <NavBar/>
     </div>
-    <NavBar/>
+    {/* <NavBar/> */}
   </header>
-)
+  )
+
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

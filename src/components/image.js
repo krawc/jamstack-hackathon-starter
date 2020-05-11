@@ -1,3 +1,4 @@
+
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
@@ -12,21 +13,9 @@ import Img from "gatsby-image"
  * - `gatsby-image`: https://gatsby.dev/gatsby-image
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
+const StaticImage = (props) => {
 
-const Logo = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "liveroom_logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
-  return <Img style={{width: "180px"}} fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <img src={`./images/${props.url}`} />
 }
 
 export default Logo
