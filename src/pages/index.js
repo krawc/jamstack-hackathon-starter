@@ -317,4 +317,4 @@ class IndexPage extends React.Component {
 
 }
 
-export default withStyles(useStyles)(IndexPage)
+export default IndexPage
