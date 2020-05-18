@@ -114,13 +114,6 @@ class IndexPage extends React.Component {
         height: 200,
         paddingTop: '56.25%', // 16:9
       },
-      expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-          duration: theme.transitions.duration.shortest,
-        }),
-      },
       button: {
         background: "linear-gradient(270deg, rgb(255, 83, 83) 1.64%, rgb(255, 83, 83) 1.65%, rgb(255, 83, 196) 96.17%)",
         borderRadius: "12.2404px",
