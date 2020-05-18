@@ -249,7 +249,7 @@ h2 {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  color: inherit;
+  color: #fff;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
@@ -616,6 +616,8 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
