@@ -64,7 +64,7 @@ strong {
 dfn {
   font-style: italic;
 }
-h1 {
+h1, h2 {
   font-family: Montserrat;
   font-size: 2em;
   margin: 0.67em 0;
@@ -234,7 +234,7 @@ h1 {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  color: inherit;
+  color: #fff;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
@@ -250,8 +250,6 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
@@ -621,5 +619,25 @@ pre tt:after {
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px ) {
+
+  header a {
+    display: none;
+  }
+  .front-page {
+    margin-bottom: 50px;
+  }
+  .MuiGrid-container {
+    min-height: 500px;
+    justify-content: flex-end;
+  }
+  .grid-image {
+    position: absolute;
+    opacity: 0.4;
+    z-index: -1;
+    width: 100%;
   }
 }
