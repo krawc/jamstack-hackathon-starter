@@ -19,79 +19,79 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 
 
-const useStyles =  theme => ({
-  root: {
-    flex: "0 0 48%",
-    margin: "1%"
-  },
-  link: {
-    textDecoration: "none!important",
-    color: "#222"
-  },
-  media: {
-    height: 200,
-    paddingTop: '56.25%', // 16:9
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  button: {
-    background: "linear-gradient(270deg, rgb(255, 83, 83) 1.64%, rgb(255, 83, 83) 1.65%, rgb(255, 83, 196) 96.17%)",
-    borderRadius: "12.2404px",
-    color: "rgb(255, 255, 255)",
-    fontFamily: "Montserrat, sans-serif",
-    padding: "0.5em 1em",
-    fontSize: 18,
-    textTransform: "none"
-  },
-  header: {
-    color: "#fff", 
-    fontSize: "8vh", 
-    lineHeight: "10vh"
-  },
-  subheader: {
-    color: "white", 
-    fontSize: "35px", 
-    lineHeight: "50px"
-  },
-  headerFive: {
-    fontSize: "18px",
-    fontWeight: "600"
-  },
-  link: {
-    fontSize: "18px",
-    fontWeight: "300"
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  form: {
-    justifyContent: "center",
-    display: "flex"
-  },
-  textField: {
-    background: "#282831",
-    borderRadius: "20px",
-    outline: "none",
-    border: "0",
-    padding: "10px",
-    marginRight: "-30px",
-    flex: "0 0 40%",
-    minWidth: "400px",
-    transition: "border 0.1s ease-out",
-    color: "#fff",
-    "&:focus": {
-      border: "1px solid rgb(255, 83, 196)",
-    },
-    "&::placeholder": {
-      color: "#F9F8FD"
-    }
-  }
-});
+// const useStyles =  theme => ({
+//   root: {
+//     flex: "0 0 48%",
+//     margin: "1%"
+//   },
+//   link: {
+//     textDecoration: "none!important",
+//     color: "#222"
+//   },
+//   media: {
+//     height: 200,
+//     paddingTop: '56.25%', // 16:9
+//   },
+//   expand: {
+//     transform: 'rotate(0deg)',
+//     marginLeft: 'auto',
+//     transition: theme.transitions.create('transform', {
+//       duration: theme.transitions.duration.shortest,
+//     }),
+//   },
+//   button: {
+//     background: "linear-gradient(270deg, rgb(255, 83, 83) 1.64%, rgb(255, 83, 83) 1.65%, rgb(255, 83, 196) 96.17%)",
+//     borderRadius: "12.2404px",
+//     color: "rgb(255, 255, 255)",
+//     fontFamily: "Montserrat, sans-serif",
+//     padding: "0.5em 1em",
+//     fontSize: 18,
+//     textTransform: "none"
+//   },
+//   header: {
+//     color: "#fff", 
+//     fontSize: "8vh", 
+//     lineHeight: "10vh"
+//   },
+//   subheader: {
+//     color: "white", 
+//     fontSize: "35px", 
+//     lineHeight: "50px"
+//   },
+//   headerFive: {
+//     fontSize: "18px",
+//     fontWeight: "600"
+//   },
+//   link: {
+//     fontSize: "18px",
+//     fontWeight: "300"
+//   },
+//   expandOpen: {
+//     transform: 'rotate(180deg)',
+//   },
+//   form: {
+//     justifyContent: "center",
+//     display: "flex"
+//   },
+//   textField: {
+//     background: "#282831",
+//     borderRadius: "20px",
+//     outline: "none",
+//     border: "0",
+//     padding: "10px",
+//     marginRight: "-30px",
+//     flex: "0 0 40%",
+//     minWidth: "400px",
+//     transition: "border 0.1s ease-out",
+//     color: "#fff",
+//     "&:focus": {
+//       border: "1px solid rgb(255, 83, 196)",
+//     },
+//     "&::placeholder": {
+//       color: "#F9F8FD"
+//     }
+//   }
+// });
 
 class IndexPage extends React.Component {
 
