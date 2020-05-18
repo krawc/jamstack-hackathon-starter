@@ -114,7 +114,7 @@ class IndexPage extends React.Component {
         height: 200,
         paddingTop: '56.25%', // 16:9
       },
-      button: {
+      btn: {
         background: "linear-gradient(270deg, rgb(255, 83, 83) 1.64%, rgb(255, 83, 83) 1.65%, rgb(255, 83, 196) 96.17%)",
         borderRadius: "12.2404px",
         color: "rgb(255, 255, 255)",
@@ -190,8 +190,6 @@ class IndexPage extends React.Component {
 
   render() {
 
-    const { classes } = this.props;
-
     return (
       <Layout >
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -212,9 +210,9 @@ class IndexPage extends React.Component {
           >
 
             <Grid xs="12" sm="7">
-              <h1 className={this.inlineStyles.header}>Discover the world's top creatives <span style={{color: "rgb(254, 83, 196)"}}>live.</span></h1>
+              <h1 style={this.inlineStyles.header}>Discover the world's top creatives <span style={{color: "rgb(254, 83, 196)"}}>live.</span></h1>
               <p style={{color: "#C4C4C4", fontSize: "18px" }}>Liveroom is a leading platform for streaming original live content of artists.</p>
-              <Button onClick={() => this.setState({dialog: true})} style={{background: "linear-gradient(270deg, rgb(255, 83, 83) 1.64%, rgb(255, 83, 83) 1.65%, rgb(255, 83, 196) 96.17%)"}} className={this.inlineStyles.button}>Sign up / Log in</Button>
+              <Button onClick={() => this.setState({dialog: true})} style={this.inlineStyles.btn}>Sign up / Log in</Button>
               </Grid>
             <Grid xs="12" sm="5" className="grid-image"><img src={front1} alt="energetic young male dancing in pink illumination"/></Grid>
 
@@ -228,7 +226,7 @@ class IndexPage extends React.Component {
           >
             <Grid item xs="12" sm="6" className="grid-image"><img style={{width: "100%"}} src={img1} alt="energetic young male dancing in pink illumination"/></Grid>
             <Grid item xs="12" sm="6">
-              <h2 className={this.inlineStyles.subheader}>Watch quality livestreams</h2>
+              <h2 style={this.inlineStyles.subheader}>Watch quality livestreams</h2>
               <p style={{color: "#C4C4C4", fontSize: "18px" }}>Watch your favorite artists live from the safety of your home.</p>
             </Grid>
           </Grid>
@@ -240,7 +238,7 @@ class IndexPage extends React.Component {
             spacing={5}
           >
             <Grid item xs="12" sm="6" >
-              <h2 className={this.inlineStyles.subheader}>Support your favorites</h2>
+              <h2 style={this.inlineStyles.subheader}>Support your favorites</h2>
               <p style={{color: "#C4C4C4", fontSize: "18px" }}>Make donations to support your favorite creatives. <br/>Be a part of their success.</p>
             </Grid>
             <Grid item xs="12" sm="6" className="grid-image"><img style={{width: "100%"}} src={img2} alt="energetic young male dancing in pink illumination"/></Grid>
@@ -254,7 +252,7 @@ class IndexPage extends React.Component {
           >
             <Grid item xs="12" sm="6" className="grid-image"><img style={{width: "100%"}} src={img3} alt="energetic young male dancing in pink illumination"/></Grid>
             <Grid item xs="12" sm="6" >
-              <h2 className={this.inlineStyles.subheader}>Get involved</h2>
+              <h2 style={this.inlineStyles.subheader}>Get involved</h2>
               <p style={{color: "#C4C4C4", fontSize: "18px" }}>Get involved in the creative community of your choice. <br/>Make friends online.</p>
             </Grid>
           </Grid>
@@ -267,11 +265,11 @@ class IndexPage extends React.Component {
             style={{margin: "50px 0"}}
           >
             <Grid item xs="12">
-              <h2 className={this.inlineStyles.subheader} style={{textAlign: "center"}}>Gigs happen here. Become part of our community.</h2>
+              <h2 style={this.inlineStyles.subheader} style={{textAlign: "center"}}>Gigs happen here. Become part of our community.</h2>
               <p style={{color: "#C4C4C4", fontSize: "18px", textAlign: "center" }}>Don’t miss out! Liveroom is coming soon with industry leading performances live. <br/>Sign up for our list. Be first to get notified.</p>
-              <form className="subscribe-form" onSubmit={this.handleSubmit} className={this.inlineStyles.form} autoComplete="off">
-                <input name="email" className={this.inlineStyles.textField} id="email" placeholder="Email" />
-                <Button type="submit" className={this.inlineStyles.button}>
+              <form className="subscribe-form" onSubmit={this.handleSubmit} style={this.inlineStyles.form} autoComplete="off">
+                <input name="email" style={this.inlineStyles.textField} id="email" placeholder="Email" />
+                <Button type="submit" style={this.inlineStyles.btn}>
                   {this.state.loading ? "Processing..." : "Subscribe"}
                 </Button>
               </form>
@@ -289,17 +287,17 @@ class IndexPage extends React.Component {
               <Logo/>
             </Grid>
             <Grid item xs="12" md="3" >
-              <h5 className={this.inlineStyles.headerFive}>Pages</h5>
-              <Link to="/" className={this.inlineStyles.link}>For Creatives</Link>
-              <Link to="/" className={this.inlineStyles.link}>Explore</Link>
+              <h5 style={this.inlineStyles.headerFive}>Pages</h5>
+              <Link to="/" style={this.inlineStyles.link}>For Creatives</Link>
+              <Link to="/" style={this.inlineStyles.link}>Explore</Link>
             </Grid>
             <Grid item xs="12" md="3" >
-              <h5 className={this.inlineStyles.headerFive}>Privacy</h5>
-              <Link to="/" className={this.inlineStyles.link}>Imprint</Link>
-              <Link to="/" className={this.inlineStyles.link}>Privacy Policy</Link>
+              <h5 style={this.inlineStyles.headerFive}>Privacy</h5>
+              <Link to="/" style={this.inlineStyles.link}>Imprint</Link>
+              <Link to="/" style={this.inlineStyles.link}>Privacy Policy</Link>
             </Grid>
             <Grid item xs="12" md="3" >
-              <h5 className={this.inlineStyles.headerFive}>Social Media</h5>
+              <h5 style={this.inlineStyles.headerFive}>Social Media</h5>
             </Grid>
           </Grid> */}
          
