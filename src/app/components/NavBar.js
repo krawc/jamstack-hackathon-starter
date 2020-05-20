@@ -45,10 +45,12 @@ export default () => {
             Logout
           </a>
         ) : (
-          <Button style={{
+          <Link style={{
             color: "rgb(255, 255, 255)",
-            fontFamily: "Montserrat, sans-serif"
-            }} onClick={() => setDialog(true)}>Sign Up</Button>
+            fontFamily: "Montserrat, sans-serif",
+            padding: "12px 16px",
+            lineHeight: "24px"
+            }} to="#newsletter">Sign Up</Link>
         )}
       </nav>
 
